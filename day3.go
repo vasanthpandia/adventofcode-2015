@@ -16,7 +16,19 @@ func findHouseCount() {
 	reader := bufio.NewReader(file)
 	content, _ := ioutil.ReadAll(reader)
 
-	houseSet := NewIntPointSet()
+
+	houseSetYear1 := NewIntPointSet()
+	HouseCount(content, &houseSetYear1)
+	fmt.Println("Total for Year 1 : ", houseSetYear1.NumElements())
+
+	santa, robosanta := SplitInputs(content)
+	houseSetYear2 := NewIntPointSet()
+	HouseCount(santa, &houseSetYear2)
+	HouseCount(robosanta, &houseSetYear2)
+	fmt.Println("Total for Year 2: ", houseSetYear2.NumElements())
+}
+
+func HouseCount(content []byte, houseSet *IntPointSet) {
 	x, y := 0, 0
 
 	for _, val := range content {
@@ -50,8 +62,23 @@ func findHouseCount() {
 			houseSet.Add(s)
 		}
 	}
+}
 
-	fmt.Println("Houses with atleast 1 gift :", houseSet.NumElements())
+// Split the given instructions between Santa and RoboSanta
+
+func SplitInputs(content []byte) ([]byte, []byte) {
+	var santa []byte
+	var robosanta []byte
+
+	for i, val := range content {
+		if i % 2 == 0 {
+			santa = append(santa, val)
+		} else {
+			robosanta = append(robosanta, val)
+		}
+	}
+
+	return santa, robosanta
 }
 
 // Set Implementation - Thanks to @amahfouz - https://softwareengineering.stackexchange.com/a/273372
