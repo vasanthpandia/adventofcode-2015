@@ -27,9 +27,15 @@ func main() {
 func isAnswer(input string) bool {
 	md := GetMD5Hash(input)
 	fmt.Println(md)
-	fmt.Println(input, " - ", string(md[:5]))
+	fmt.Println(input, " - ", string(md[:6]))
 
-	if string(md[:5]) == "00000" {
+	// Part 1 Condition
+	// if string(md[:5]) == "00000" {
+	// 	return true
+	// }
+
+	// Part 2 Condition
+	if string(md[:6]) == "000000" {
 		return true
 	}
 
