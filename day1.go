@@ -1,10 +1,10 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"io/ioutil"
 	"os"
-	"bufio"
 )
 
 func main() {
@@ -20,7 +20,7 @@ func floorNumber() {
 	var charPosition int
 	fmt.Println("CharPosition : ", charPosition)
 
-  for i := 0; i < len(content); i++ {
+	for i := 0; i < len(content); i++ {
 		if content[i] == 40 {
 			currentFloor++
 		} else if content[i] == 41 {

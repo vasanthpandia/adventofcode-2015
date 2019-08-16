@@ -1,13 +1,13 @@
 package main
 
 import (
-	"fmt"
-	"strings"
-	"strconv"
-	"os"
-	"io"
 	"bufio"
+	"fmt"
+	"io"
+	"os"
 	"sort"
+	"strconv"
+	"strings"
 )
 
 func main() {
@@ -61,13 +61,13 @@ func findArea(side1 float64, side2 float64, side3 float64) float64 {
 
 	var smallest float64
 
-	if area1<=area2 && area1<=area3 {
+	if area1 <= area2 && area1 <= area3 {
 		smallest = area1
 	}
-	if area2<=area1 && area2<=area3 {
+	if area2 <= area1 && area2 <= area3 {
 		smallest = area2
 	}
-	if area3<=area1 && area3<=area2 {
+	if area3 <= area1 && area3 <= area2 {
 		smallest = area3
 	}
 

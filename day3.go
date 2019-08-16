@@ -1,10 +1,10 @@
 package main
 
 import (
-	"fmt"
 	"bufio"
-	"os"
+	"fmt"
 	"io/ioutil"
+	"os"
 )
 
 func main() {
@@ -15,7 +15,6 @@ func findHouseCount() {
 	file, _ := os.Open("day3.txt")
 	reader := bufio.NewReader(file)
 	content, _ := ioutil.ReadAll(reader)
-
 
 	houseSetYear1 := NewIntPointSet()
 	HouseCount(content, &houseSetYear1)
@@ -41,21 +40,21 @@ func HouseCount(content []byte, houseSet *IntPointSet) {
 			houseSet.Add(s)
 		} else if string(val) == "<" {
 			x--
-			s := IntPoint {
+			s := IntPoint{
 				X: x,
 				Y: y,
 			}
 			houseSet.Add(s)
 		} else if string(val) == "^" {
 			y++
-			s := IntPoint {
+			s := IntPoint{
 				X: x,
 				Y: y,
 			}
 			houseSet.Add(s)
 		} else if string(val) == "v" {
 			y--
-			s := IntPoint {
+			s := IntPoint{
 				X: x,
 				Y: y,
 			}
@@ -71,7 +70,7 @@ func SplitInputs(content []byte) ([]byte, []byte) {
 	var robosanta []byte
 
 	for i, val := range content {
-		if i % 2 == 0 {
+		if i%2 == 0 {
 			santa = append(santa, val)
 		} else {
 			robosanta = append(robosanta, val)
@@ -101,8 +100,8 @@ func (p1 IntPoint) Equals(p2 IntPoint) bool {
 }
 
 func (set *IntPointSet) Add(p IntPoint) {
-	if ! set.Contains(p) {
-			set.slice = append(set.slice, p)
+	if !set.Contains(p) {
+		set.slice = append(set.slice, p)
 	}
 }
 

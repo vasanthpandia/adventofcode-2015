@@ -1,10 +1,10 @@
 package main
 
 import (
-	"fmt"
 	"crypto/md5"
-	"strconv"
 	"encoding/hex"
+	"fmt"
+	"strconv"
 )
 
 func main() {
@@ -16,7 +16,7 @@ func main() {
 
 		if isAnswer(newinp) {
 			flag = true
-			break;
+			break
 		}
 		count++
 	}
